@@ -84,13 +84,12 @@ class EntryItem extends StatelessWidget {
   final ExpansionData entry;
   const EntryItem(this.entry);
 
-  Widget _buildTiles(ExpansionData Entry) {
-    if (Entry.dataList.isEmpty) {
+  Widget _buildTiles(ExpansionData entry) {
+    if (entry.dataList.isEmpty) {
       return ListTile(
-
         tileColor: Color(0xff343A40),
         title: Text(
-          Entry.title,
+          entry.title,
           style: TextStyle(color: Color(0xffFAEBE0)),
         ),
       );
@@ -98,12 +97,12 @@ class EntryItem extends StatelessWidget {
     return ExpansionTile(
       collapsedIconColor: Color(0xffFAEBE0),
       iconColor: Color(0xffFAEBE0),
-      key: PageStorageKey<ExpansionData>(Entry),
+      key: PageStorageKey<ExpansionData>(entry),
       title: Text(
-        Entry.title,
+        entry.title,
         style: TextStyle(color: Color(0xffFAEBE0)),
       ),
-      children: Entry.dataList.map<Widget>(_buildTiles).toList(),
+      children: entry.dataList.map<Widget>(_buildTiles).toList(),
     );
   }
 
